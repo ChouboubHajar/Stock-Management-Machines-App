@@ -16,7 +16,6 @@ class StockApp(tk.Tk):
 
         self.title(f"Stock Management - {date.today()}")
         self.geometry("800x800")
-        self.resizable(False, False)
 
         self.entries = {}
 
@@ -46,7 +45,7 @@ class StockApp(tk.Tk):
             self.table.heading(col, text=col)
             self.table.column(col, width=140, anchor="center")
 
-        self.table.pack(side="left")
+        self.table.pack(side="left",expand=True,fill="both")
 
         scrollbar = ttk.Scrollbar(self.frame_table,orient="vertical",command=self.table.yview)
         self.table.configure(yscrollcommand=scrollbar.set)
@@ -234,5 +233,6 @@ class StockApp(tk.Tk):
 # Launch application
 app = StockApp()
 app.mainloop()
+
 
 
